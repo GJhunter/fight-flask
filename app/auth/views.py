@@ -151,4 +151,4 @@ def change_email(token):
 @auth.route('/secret')
 @login_required#保护路由只让认证的用户访问，如果未认证的用户访问Flask-Login会拦截请求，把用户发往登录页面
 def secret():
-	return 'Onlu authenticated users are allowed!'
+	return 'welcome master'

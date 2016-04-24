@@ -36,6 +36,11 @@ def create_app(config_name):
 	login_manager.init_app(app)
 	pagedown.init_app(app)
 
+	 if not app.debug and not app.testing and not app.config['SSL_DISABLE']:
+        from flask.ext.sslify import SSLify
+        sslify = SSLify(app)
+
+
 	from .main import main as main_blueprint
 	app.register_blueprint(main_blueprint)#蓝本在工厂函数 create_app() 中注册到程序上
 
